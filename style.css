@@ -1,0 +1,13 @@
+#circulo{
+    border-radius: 50%; /* Redondea los bordes para hacer un círculo */
+    object-fit: cover;
+}
+#svg-container {
+    display: flex; /* Alinea el contenido del contenedor en el centro */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 48px; /* Ancho del contenedor */
+    height: 48px; /* Altura del contenedor */
+    border-radius: 50%; /* Hace el contenedor circular */
+    overflow: hidden; /* Oculta cualquier parte del SVG que sobresalga */
+}

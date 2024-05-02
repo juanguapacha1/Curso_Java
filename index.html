@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat'],
+                    },
+                    colors: {
+                        red: {
+                            '50': '#ffebee',
+                            '100': '#ffcdd2',
+                            '200': '#ef9a9a',
+                            '300': '#e57373',
+                            '400': '#ef5350',
+                            '500': '#f44336',
+                            '600': '#e53935',
+                            '700': '#d32f2f',
+                            '800': '#c62828',
+                            '900': '#b71c1c',
+                            'accent-100': '#ff8a80',
+                            'accent-200': '#ff5252',
+                            'accent-400': '#ff1744',
+                            'accent-700': '#d50000',
+                        },
+                        purple: {
+                            50: '#f3e5f5',
+                            100: '#e1bee7',
+                            200: '#ce93d8',
+                            300: '#ba68c8',
+                            400: '#ab47bc',
+                            500: '#9c27b0',
+                            600: '#8e24aa',
+                            700: '#7b1fa2',
+                            800: '#6a1b9a',
+                            900: '#4a148c',
+                            'accent-100': '#ea80fc',
+                            'accent-200': '#e040fb',
+                            'accent-400': '#d500f9',
+                            'accent-700': '#aa00ff',
+                        },
+                        'deep-purple': {
+                            50: '#ede7f6',
+                            100: '#d1c4e9',
+                            200: '#b39ddb',
+                            300: '#9575cd',
+                            400: '#7e57c2',
+                            500: '#673ab7',
+                            600: '#5e35b1',
+                            700: '#512da8',
+                            800: '#4527a0',
+                            900: '#311b92',
+                            'accent-100': '#b388ff',
+                            'accent-200': '#7c4dff',
+                            'accent-400': '#651fff',
+                            'accent-700': '#6200ea',
+                        },
+                        teal: {
+                            50: '#e0f2f1',
+                            100: '#b2dfdb',
+                            200: '#80cbc4',
+                            300: '#4db6ac',
+                            400: '#26a69a',
+                            500: '#009688',
+                            600: '#00897b',
+                            700: '#00796b',
+                            800: '#00695c',
+                            900: '#004d40',
+                            'accent-100': '#a7ffeb',
+                            'accent-200': '#64ffda',
+                            'accent-400': '#1de9b6',
+                            'accent-700': '#00bfa5',
+                        },
+                        indigo: {
+                            50: '#e8eaf6',
+                            100: '#c5cae9',
+                            200: '#9fa8da',
+                            300: '#7986cb',
+                            400: '#5c6bc0',
+                            500: '#3f51b5',
+                            600: '#3949ab',
+                            700: '#303f9f',
+                            800: '#283593',
+                            900: '#1a237e',
+                            'accent-100': '#8c9eff',
+                            'accent-200': '#536dfe',
+                            'accent-400': '#3d5afe',
+                            'accent-700': '#304ffe',
+                        },
+                        pink: {
+                            50: '#fce4ec',
+                            100: '#f8bbd0',
+                            200: '#f48fb1',
+                            300: '#f06292',
+                            400: '#ec407a',
+                            500: '#e91e63',
+                            600: '#d81b60',
+                            700: '#c2185b',
+                            800: '#ad1457',
+                            900: '#880e4f',
+                            'accent-100': '#ff80ab',
+                            'accent-200': '#ff4081',
+                            'accent-400': '#f50057',
+                            'accent-700': '#c51162',
+                        },
+                        blue: {
+                            50: '#e3f2fd',
+                            100: '#bbdefb',
+                            200: '#90caf9',
+                            300: '#64b5f6',
+                            400: '#42a5f5',
+                            500: '#2196f3',
+                            600: '#1e88e5',
+                            700: '#1976d2',
+                            800: '#1565c0',
+                            900: '#0d47a1',
+                            'accent-100': '#82b1ff',
+                            'accent-200': '#448aff',
+                            'accent-400': '#2979ff',
+                            'accent-700': '#2962ff',
+                        },
+                        'light-blue': {
+                            50: '#e1f5fe',
+                            100: '#b3e5fc',
+                            200: '#81d4fa',
+                            300: '#4fc3f7',
+                            400: '#29b6f6',
+                            500: '#03a9f4',
+                            600: '#039be5',
+                            700: '#0288d1',
+                            800: '#0277bd',
+                            900: '#01579b',
+                            'accent-100': '#80d8ff',
+                            'accent-200': '#40c4ff',
+                            'accent-400': '#00b0ff',
+                            'accent-700': '#0091ea',
+                        },
+                        cyan: {
+                            50: '#e0f7fa',
+                            100: '#b2ebf2',
+                            200: '#80deea',
+                            300: '#4dd0e1',
+                            400: '#26c6da',
+                            500: '#00bcd4',
+                            600: '#00acc1',
+                            700: '#0097a7',
+                            800: '#00838f',
+                            900: '#006064',
+                            'accent-100': '#84ffff',
+                            'accent-200': '#18ffff',
+                            'accent-400': '#00e5ff',
+                            'accent-700': '#00b8d4',
+                        },
+                        gray: {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#eeeeee',
+                            300: '#e0e0e0',
+                            400: '#bdbdbd',
+                            500: '#9e9e9e',
+                            600: '#757575',
+                            700: '#616161',
+                            800: '#424242',
+                            900: '#212121',
+                        },
+                        'blue-gray': {
+                            50: '#eceff1',
+                            100: '#cfd8dc',
+                            200: '#b0bec5',
+                            300: '#90a4ae',
+                            400: '#78909c',
+                            500: '#607d8b',
+                            600: '#546e7a',
+                            700: '#455a64',
+                            800: '#37474f',
+                            900: '#263238',
+                        },
+                        green: {
+                            50: '#e8f5e9',
+                            100: '#c8e6c9',
+                            200: '#a5d6a7',
+                            300: '#81c784',
+                            400: '#66bb6a',
+                            500: '#4caf50',
+                            600: '#43a047',
+                            700: '#388e3c',
+                            800: '#2e7d32',
+                            900: '#1b5e20',
+                            'accent-100': '#b9f6ca',
+                            'accent-200': '#69f0ae',
+                            'accent-400': '#00e676',
+                            'accent-700': '#00c853',
+                        },
+                        'light-green': {
+                            50: '#f1f8e9',
+                            100: '#dcedc8',
+                            200: '#c5e1a5',
+                            300: '#aed581',
+                            400: '#9ccc65',
+                            500: '#8bc34a',
+                            600: '#7cb342',
+                            700: '#689f38',
+                            800: '#558b2f',
+                            900: '#33691e',
+                            'accent-100': '#ccff90',
+                            'accent-200': '#b2ff59',
+                            'accent-400': '#76ff03',
+                            'accent-700': '#64dd17',
+                        },
+                        lime: {
+                            50: '#f9fbe7',
+                            100: '#f0f4c3',
+                            200: '#e6ee9c',
+                            300: '#dce775',
+                            400: '#d4e157',
+                            500: '#cddc39',
+                            600: '#c0ca33',
+                            700: '#afb42b',
+                            800: '#9e9d24',
+                            900: '#827717',
+                            'accent-100': '#f4ff81',
+                            'accent-200': '#eeff41',
+                            'accent-400': '#c6ff00',
+                            'accent-700': '#aeea00',
+                        },
+                        amber: {
+                            50: '#fff8e1',
+                            100: '#ffecb3',
+                            200: '#ffe082',
+                            300: '#ffd54f',
+                            400: '#ffca28',
+                            500: '#ffc107',
+                            600: '#ffb300',
+                            700: '#ffa000',
+                            800: '#ff8f00',
+                            900: '#ff6f00',
+                            'accent-100': '#ffe57f',
+                            'accent-200': '#ffd740',
+                            'accent-400': '#ffc400',
+                            'accent-700': '#ffab00',
+                        },
+                        yellow: {
+                            50: '#fffde7',
+                            100: '#fff9c4',
+                            200: '#fff59d',
+                            300: '#fff176',
+                            400: '#ffee58',
+                            500: '#ffeb3b',
+                            600: '#fdd835',
+                            700: '#fbc02d',
+                            800: '#f9a825',
+                            900: '#f57f17',
+                            'accent-100': '#ffff8d',
+                            'accent-200': '#ffff00',
+                            'accent-400': '#ffea00',
+                            'accent-700': '#ffd600',
+                        },
+                        orange: {
+                            50: '#fff3e0',
+                            100: '#ffe0b2',
+                            200: '#ffcc80',
+                            300: '#ffb74d',
+                            400: '#ffa726',
+                            500: '#ff9800',
+                            600: '#fb8c00',
+                            700: '#f57c00',
+                            800: '#ef6c00',
+                            900: '#e65100',
+                            'accent-100': '#ffd180',
+                            'accent-200': '#ffab40',
+                            'accent-400': '#ff9100',
+                            'accent-700': '#ff6d00',
+                        },
+                        'deep-orange': {
+                            50: '#fbe9e7',
+                            100: '#ffccbc',
+                            200: '#ffab91',
+                            300: '#ff8a65',
+                            400: '#ff7043',
+                            500: '#ff5722',
+                            600: '#f4511e',
+                            700: '#e64a19',
+                            800: '#d84315',
+                            900: '#bf360c',
+                            'accent-100': '#ff9e80',
+                            'accent-200': '#ff6e40',
+                            'accent-400': '#ff3d00',
+                            'accent-700': '#dd2c00',
+                        },
+                        brown: {
+                            50: '#efebe9',
+                            100: '#d7ccc8',
+                            200: '#bcaaa4',
+                            300: '#a1887f',
+                            400: '#8d6e63',
+                            500: '#795548',
+                            600: '#6d4c41',
+                            700: '#5d4037',
+                            800: '#4e342e',
+                            900: '#3e2723',
+                        },
+                    },
+                    spacing: {
+                        '7': '1.75rem',
+                        '9': '2.25rem',
+                        '28': '7rem',
+                        '80': '20rem',
+                        '96': '24rem',
+                    },
+                    height: {
+                        '1/2': '50%',
+                    },
+                    scale: {
+                        '30': '.3',
+                    },
+                    boxShadow: {
+                        outline: '0 0 0 3px rgba(101, 31, 255, 0.4)',
+                    },
+                },
+            },
+            variants: {
+                scale: ['responsive', 'hover', 'focus', 'group-hover'],
+                textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+                opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+                backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
+            },
+            plugins: [],
+
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="bg-gray-900">
+            <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div class="relative flex items-center justify-between">
+                    <a href="index.html" aria-label="Company" title="Company" class="inline-flex items-center">
+                        <svg width="48px" height="48px" viewBox="0 0 24.00 24.00" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#000000" transform="matrix(1, 0, 0, 1, 0, 0)"
+                            stroke-width="0.45600000000000007">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M19.3517 7.61665L15.3929 4.05375C14.2651 3.03868 13.7012 2.53114 13.0092 2.26562L13 5.00011C13 7.35713 13 8.53564 13.7322 9.26787C14.4645 10.0001 15.643 10.0001 18 10.0001H21.5801C21.2175 9.29588 20.5684 8.71164 19.3517 7.61665Z"
+                                    fill="#1C274C"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M10 22H14C17.7712 22 19.6569 22 20.8284 20.8284C22 19.6569 22 17.7712 22 14V13.5629C22 12.6901 22 12.0344 21.9574 11.5001H18L17.9051 11.5001C16.808 11.5002 15.8385 11.5003 15.0569 11.3952C14.2098 11.2813 13.3628 11.0198 12.6716 10.3285C11.9803 9.63726 11.7188 8.79028 11.6049 7.94316C11.4998 7.16164 11.4999 6.19207 11.5 5.09497L11.5092 2.26057C11.5095 2.17813 11.5166 2.09659 11.53 2.01666C11.1214 2 10.6358 2 10.0298 2C6.23869 2 4.34315 2 3.17157 3.17157C2 4.34315 2 6.22876 2 10V14C2 17.7712 2 19.6569 3.17157 20.8284C4.34315 22 6.22876 22 10 22ZM10.9697 15.4697C11.2626 15.1768 11.7374 15.1768 12.0303 15.4697L13.0303 16.4697C13.3232 16.7626 13.3232 17.2374 13.0303 17.5303L12.0303 18.5303C11.7374 18.8232 11.2626 18.8232 10.9697 18.5303C10.6768 18.2374 10.6768 17.7626 10.9697 17.4697L11.4393 17L10.9697 16.5303C10.6768 16.2374 10.6768 15.7626 10.9697 15.4697ZM10.7022 14.2633C10.8477 13.8755 10.6512 13.4432 10.2633 13.2978C9.8755 13.1523 9.44319 13.3488 9.29775 13.7367L7.79775 17.7367C7.65231 18.1245 7.84882 18.5568 8.23666 18.7022C8.6245 18.8477 9.05681 18.6512 9.20225 18.2633L10.7022 14.2633ZM7.53033 13.4697C7.82322 13.7626 7.82322 14.2374 7.53033 14.5303L7.06066 15L7.53033 15.4697C7.82322 15.7626 7.82322 16.2374 7.53033 16.5303C7.23744 16.8232 6.76256 16.8232 6.46967 16.5303L5.46967 15.5303C5.17678 15.2374 5.17678 14.7626 5.46967 14.4697L6.46967 13.4697C6.76256 13.1768 7.23744 13.1768 7.53033 13.4697Z"
+                                    fill="#1C274C"></path>
+                            </g>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">Curso Java </span>
+                    </a>
+                    <div id="svg-container">
+                        <svg id="circulo" width="48px" height="48px" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <!-- Contenido del SVG -->
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="..." fill="#FFCC80"></path>
+                                <path d="..." fill="#01579B"></path>
+                                <!-- Más paths aquí según tu SVG -->
+                                <path
+                                    d="M23.3 8.40007L21.82 6.40008C21.7248 6.27314 21.6008 6.17066 21.4583 6.10111C21.3157 6.03156 21.1586 5.99693 21 6.00008H11.2C11.0555 6.00007 10.9128 6.03135 10.7816 6.09177C10.6504 6.15219 10.5339 6.24031 10.44 6.35007L8.71998 8.35008C8.57227 8.53401 8.49435 8.76424 8.49998 9.00008V16.2901C8.50262 18.0317 9.19567 19.7013 10.4272 20.9328C11.6588 22.1644 13.3283 22.8574 15.07 22.8601H16.93C18.6716 22.8574 20.3412 22.1644 21.5728 20.9328C22.8043 19.7013 23.4973 18.0317 23.5 16.2901V9.00008C23.5 8.7837 23.4298 8.57317 23.3 8.40007Z"
+                                    fill="#FFCC80"></path>
+                                <path
+                                    d="M29.78 28.38L25.78 23.38C25.664 23.2321 25.5086 23.1198 25.3318 23.0562C25.1549 22.9925 24.9637 22.98 24.78 23.02L16 25L7.21999 23C7.03632 22.96 6.84507 22.9725 6.6682 23.0362C6.49133 23.0998 6.33598 23.2121 6.21999 23.36L2.21999 28.36C2.10392 28.5064 2.03116 28.6823 2.00995 28.8679C1.98874 29.0534 2.01993 29.2413 2.09999 29.41C2.17815 29.5839 2.3044 29.7319 2.46385 29.8364C2.62331 29.9409 2.80933 29.9977 2.99999 30H29C29.1885 29.9995 29.373 29.9457 29.5322 29.8448C29.6914 29.744 29.8189 29.6002 29.9 29.43C29.98 29.2613 30.0112 29.0734 29.99 28.8879C29.9688 28.7023 29.8961 28.5264 29.78 28.38Z"
+                                    fill="#01579B"></path>
+                                <path
+                                    d="M29.29 6.00003L16.29 2.00003C16.0999 1.95002 15.9001 1.95002 15.71 2.00003L2.71 6.00003C2.49742 6.06422 2.31226 6.19735 2.1837 6.37841C2.05515 6.55947 1.99052 6.77817 2 7.00003C1.9917 7.22447 2.0592 7.44518 2.19163 7.62659C2.32405 7.80799 2.5137 7.93954 2.73 8.00003L15.73 11.6C15.906 11.6534 16.094 11.6534 16.27 11.6L29.27 8.00003C29.4863 7.93954 29.6759 7.80799 29.8084 7.62659C29.9408 7.44518 30.0083 7.22447 30 7.00003C30.0095 6.77817 29.9448 6.55947 29.8163 6.37841C29.6877 6.19735 29.5026 6.06422 29.29 6.00003Z"
+                                    fill="#01579B"></path>
+                                <path
+                                    d="M11.22 6C11.0756 5.99999 10.9328 6.03127 10.8016 6.09169C10.6704 6.15211 10.5539 6.24023 10.46 6.35L8.74 8.35C8.58509 8.53114 8.49998 8.76166 8.5 9V16.29C8.50264 18.0317 9.19569 19.7012 10.4272 20.9328C11.6588 22.1643 13.3283 22.8574 15.07 22.86H16V6H11.22Z"
+                                    fill="#FFE0B2"></path>
+                                <path
+                                    d="M7.21999 23C7.03632 22.96 6.84507 22.9725 6.6682 23.0362C6.49133 23.0998 6.33598 23.2121 6.21999 23.36L2.21999 28.36C2.10392 28.5064 2.03116 28.6823 2.00995 28.8679C1.98874 29.0534 2.01993 29.2413 2.09999 29.41C2.17815 29.5839 2.3044 29.7319 2.46385 29.8364C2.62331 29.9409 2.80933 29.9977 2.99999 30H16V25L7.21999 23Z"
+                                    fill="#0277BD"></path>
+                                <path
+                                    d="M15.71 2.00002L2.71 6.00002C2.49742 6.06422 2.31226 6.19734 2.1837 6.3784C2.05515 6.55947 1.99052 6.77817 2 7.00002C1.9917 7.22447 2.0592 7.44518 2.19163 7.62658C2.32405 7.80799 2.5137 7.93954 2.73 8.00002L15.73 11.6C15.8194 11.6146 15.9106 11.6146 16 11.6V2.00002C15.9039 1.98469 15.8061 1.98469 15.71 2.00002Z"
+                                    fill="#0277BD"></path>
+                                <path
+                                    d="M2.73 8.00003L8.5 9.56003V16.29C8.50264 18.0317 9.19569 19.7013 10.4272 20.9328C11.6588 22.1643 13.3283 22.8574 15.07 22.86H16.93C18.6717 22.8574 20.3412 22.1643 21.5728 20.9328C22.8043 19.7013 23.4974 18.0317 23.5 16.29V9.56003L29.27 8.00003C29.4863 7.93954 29.6759 7.80799 29.8084 7.62659C29.9408 7.44518 30.0083 7.22447 30 7.00003C30.0095 6.77817 29.9448 6.55947 29.8163 6.37841C29.6877 6.19735 29.5026 6.06422 29.29 6.00003L16.29 2.00003C16.0999 1.95002 15.9001 1.95002 15.71 2.00003L2.71 6.00003C2.49742 6.06422 2.31226 6.19735 2.1837 6.37841C2.05515 6.55947 1.99052 6.77817 2 7.00003C1.9917 7.22447 2.0592 7.44518 2.19163 7.62659C2.32405 7.80799 2.5137 7.93954 2.73 8.00003ZM21.5 16.29C21.4974 17.5013 21.015 18.6621 20.1586 19.5186C19.3021 20.3751 18.1412 20.8574 16.93 20.86H15.07C13.8588 20.8574 12.6979 20.3751 11.8414 19.5186C10.985 18.6621 10.5026 17.5013 10.5 16.29V10.11L15.73 11.56C15.906 11.6134 16.094 11.6134 16.27 11.56L21.5 10.11V16.29ZM16 4.05003L25.44 7.00003L16 9.56003L6.56 7.00003L16 4.05003Z"
+                                    fill="#263238"></path>
+                                <path
+                                    d="M25.78 23.38C25.664 23.2321 25.5086 23.1198 25.3318 23.0562C25.1549 22.9925 24.9637 22.98 24.78 23.02L16 25L7.21999 23C7.03632 22.96 6.84507 22.9725 6.6682 23.0362C6.49133 23.0998 6.33598 23.2121 6.21999 23.36L2.21999 28.36C2.10392 28.5064 2.03116 28.6823 2.00995 28.8679C1.98874 29.0534 2.01993 29.2413 2.09999 29.41C2.17815 29.5839 2.3044 29.7319 2.46385 29.8364C2.62331 29.9409 2.80933 29.9977 2.99999 30H29C29.1885 29.9995 29.373 29.9457 29.5322 29.8448C29.6914 29.744 29.8189 29.6002 29.9 29.43C29.98 29.2613 30.0112 29.0734 29.99 28.8879C29.9688 28.7023 29.8961 28.5264 29.78 28.38L25.78 23.38ZM5.07999 28L7.38999 25.11L15.78 27C15.9251 27.0299 16.0748 27.0299 16.22 27L24.61 25.13L26.92 28H5.07999Z"
+                                    fill="#263238"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Mobile menu -->
+                    <div class="lg:hidden">
+                        <button aria-label="Open Menu" title="Open Menu"
+                            class="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline">
+                            <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path>
+                                <path fill="currentColor"
+                                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"></path>
+                                <path fill="currentColor"
+                                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"></path>
+                            </svg>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="bg-indigo-400">
+            <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+                    <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+                        <a href="/" class="mb-6 sm:mx-auto">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-accent-400">
+                                <svg  width="34px" height="34px"  viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#00bbfa"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22.45 28.11L17 25.38V25C17 24.7348 16.8946 24.4804 16.7071 24.2929C16.5196 24.1054 16.2652 24 16 24C15.7348 24 15.4804 24.1054 15.2929 24.2929C15.1054 24.4804 15 24.7348 15 25V25.38L9.55 28.11C9.33366 28.2402 9.17456 28.4474 9.10466 28.69C9.03477 28.9326 9.05924 29.1927 9.17317 29.4181C9.2871 29.6434 9.48206 29.8173 9.71889 29.9048C9.95573 29.9924 10.2169 29.9871 10.45 29.89L15 27.62V28C15 28.2652 15.1054 28.5196 15.2929 28.7071C15.4804 28.8946 15.7348 29 16 29C16.2652 29 16.5196 28.8946 16.7071 28.7071C16.8946 28.5196 17 28.2652 17 28V27.62L21.55 29.89C21.6883 29.964 21.8431 30.0019 22 30C22.1847 29.9994 22.3656 29.9478 22.5227 29.8507C22.6798 29.7536 22.8069 29.6149 22.89 29.45C23.0086 29.2138 23.0289 28.9403 22.9465 28.6892C22.864 28.4381 22.6855 28.2299 22.45 28.11Z" fill="#263238"></path> <path d="M22.92 20.62C22.845 20.4374 22.7176 20.2811 22.5538 20.1707C22.3901 20.0604 22.1974 20.001 22 20H9.99999C9.80256 20.001 9.60985 20.0604 9.44613 20.1707C9.28241 20.2811 9.15501 20.4374 9.07999 20.62C9.00341 20.8021 8.98248 21.0028 9.01986 21.1968C9.05723 21.3908 9.15123 21.5694 9.28999 21.71L12.29 24.71C12.3834 24.8027 12.4942 24.876 12.6161 24.9258C12.7379 24.9755 12.8684 25.0008 13 25H19C19.1316 25.0008 19.2621 24.9755 19.3839 24.9258C19.5057 24.876 19.6165 24.8027 19.71 24.71L22.71 21.71C22.8487 21.5694 22.9427 21.3908 22.9801 21.1968C23.0175 21.0028 22.9966 20.8021 22.92 20.62Z" fill="#FF6F00"></path> <path d="M27 2H5C3.34315 2 2 3.34315 2 5V19C2 20.6569 3.34315 22 5 22H27C28.6569 22 30 20.6569 30 19V5C30 3.34315 28.6569 2 27 2Z" fill="#455A64"></path> <path d="M23 9H9C8.73478 9 8.48043 8.89464 8.29289 8.70711C8.10536 8.51957 8 8.26522 8 8C8 7.73478 8.10536 7.48043 8.29289 7.29289C8.48043 7.10536 8.73478 7 9 7H23C23.2652 7 23.5196 7.10536 23.7071 7.29289C23.8946 7.48043 24 7.73478 24 8C24 8.26522 23.8946 8.51957 23.7071 8.70711C23.5196 8.89464 23.2652 9 23 9Z" fill="#BDBDBD"></path> <path d="M14 13H9C8.73478 13 8.48043 12.8946 8.29289 12.7071C8.10536 12.5196 8 12.2652 8 12C8 11.7348 8.10536 11.4804 8.29289 11.2929C8.48043 11.1054 8.73478 11 9 11H14C14.2652 11 14.5196 11.1054 14.7071 11.2929C14.8946 11.4804 15 11.7348 15 12C15 12.2652 14.8946 12.5196 14.7071 12.7071C14.5196 12.8946 14.2652 13 14 13Z" fill="#F5F5F5"></path> <path d="M19 17H9C8.73478 17 8.48043 16.8946 8.29289 16.7071C8.10536 16.5196 8 16.2652 8 16C8 15.7348 8.10536 15.4804 8.29289 15.2929C8.48043 15.1054 8.73478 15 9 15H19C19.2652 15 19.5196 15.1054 19.7071 15.2929C19.8946 15.4804 20 15.7348 20 16C20 16.2652 19.8946 16.5196 19.7071 16.7071C19.5196 16.8946 19.2652 17 19 17Z" fill="#BDBDBD"></path> <path d="M15 25V25.38L9.55 28.11C9.33366 28.2402 9.17456 28.4474 9.10466 28.69C9.03477 28.9326 9.05924 29.1927 9.17317 29.4181C9.2871 29.6434 9.48206 29.8173 9.71889 29.9048C9.95573 29.9924 10.2169 29.9871 10.45 29.89L15 27.62V28C15 28.2652 15.1054 28.5196 15.2929 28.7071C15.4804 28.8946 15.7348 29 16 29V24C15.7348 24 15.4804 24.1054 15.2929 24.2929C15.1054 24.4804 15 24.7348 15 25Z" fill="#616161"></path> <path d="M9.99999 20C9.80256 20.001 9.60985 20.0604 9.44613 20.1707C9.28241 20.2811 9.15501 20.4374 9.07999 20.62C9.00341 20.8021 8.98248 21.0028 9.01986 21.1968C9.05723 21.3908 9.15123 21.5694 9.28999 21.71L12.29 24.71C12.3834 24.8027 12.4942 24.876 12.6161 24.9258C12.7379 24.9755 12.8684 25.0008 13 25H16V20H9.99999Z" fill="#FFA000"></path> <path d="M5 2C4.20435 2 3.44129 2.31607 2.87868 2.87868C2.31607 3.44129 2 4.20435 2 5V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H16V2H5Z" fill="#78909C"></path> <path d="M9 7C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8C8 8.26522 8.10536 8.51957 8.29289 8.70711C8.48043 8.89464 8.73478 9 9 9H16V7H9Z" fill="#F5F5F5"></path> <path d="M14 11H9C8.73478 11 8.48043 11.1054 8.29289 11.2929C8.10536 11.4804 8 11.7348 8 12C8 12.2652 8.10536 12.5196 8.29289 12.7071C8.48043 12.8946 8.73478 13 9 13H14C14.2652 13 14.5196 12.8946 14.7071 12.7071C14.8946 12.5196 15 12.2652 15 12C15 11.7348 14.8946 11.4804 14.7071 11.2929C14.5196 11.1054 14.2652 11 14 11Z" fill="#F5F5F5"></path> <path d="M9 15C8.73478 15 8.48043 15.1054 8.29289 15.2929C8.10536 15.4804 8 15.7348 8 16C8 16.2652 8.10536 16.5196 8.29289 16.7071C8.48043 16.8946 8.73478 17 9 17H16V15H9Z" fill="#F5F5F5"></path> <path d="M27 2H5C4.20435 2 3.44129 2.31607 2.87868 2.87868C2.31607 3.44129 2 4.20435 2 5V19C2 19.7956 2.31607 20.5587 2.87868 21.1213C3.44129 21.6839 4.20435 22 5 22H9.59L12.29 24.71C12.3834 24.8027 12.4943 24.876 12.6161 24.9258C12.7379 24.9755 12.8684 25.0008 13 25H19C19.1316 25.0008 19.2621 24.9755 19.3839 24.9258C19.5057 24.876 19.6166 24.8027 19.71 24.71L22.41 22H27C27.7956 22 28.5587 21.6839 29.1213 21.1213C29.6839 20.5587 30 19.7956 30 19V5C30 4.20435 29.6839 3.44129 29.1213 2.87868C28.5587 2.31607 27.7956 2 27 2ZM18.59 23H13.41L12.41 22H19.59L18.59 23ZM28 19C28 19.2652 27.8946 19.5196 27.7071 19.7071C27.5196 19.8946 27.2652 20 27 20H5C4.73478 20 4.48043 19.8946 4.29289 19.7071C4.10536 19.5196 4 19.2652 4 19V5C4 4.73478 4.10536 4.48043 4.29289 4.29289C4.48043 4.10536 4.73478 4 5 4H27C27.2652 4 27.5196 4.10536 27.7071 4.29289C27.8946 4.48043 28 4.73478 28 5V19Z" fill="#263238"></path> </g></svg>
+                            </div>
+                        </a>
+                        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                            <h2
+                                class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
+                                <span class="relative inline-block">
+                                    <svg viewBox="0 0 52 24" fill="currentColor"
+                                        class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-deep-purple-accent-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                                        <defs>
+                                            <pattern id="700c93bf-0068-4e32-aafe-ef5b6a647708" x="0" y="0" width=".135"
+                                                height=".30">
+                                                <circle cx="1" cy="1" r=".7"></circle>
+                                            </pattern>
+                                        </defs>
+                                        <rect fill="url(#700c93bf-0068-4e32-aafe-ef5b6a647708)" width="52" height="24">
+                                        </rect>
+                                    </svg>
+                                    <span class="relative">Bienvenido a nuestro curso de java!</span>
+                                </span>
+                            </h2>
+                            <p class="text-base text-indigo-100 md:text-lg">
+                                Bienvenido al curso de Java, donde aprenderás uno de los lenguajes de programación más populares y versátiles en el mundo de la tecnología. Java es conocido por su robustez, seguridad y portabilidad, y es utilizado en una amplia variedad de aplicaciones, desde aplicaciones web y móviles hasta software empresarial y soluciones de IoT.
+                            </p>
+                        </div>
+                        <div>
+                            <a href="clases.html"
+                                class="inline-flex items-center justify-center h-12 px-6 font-semibold tracking-wide text-teal-900 transition duration-200 rounded shadow-md hover:text-deep-purple-900 bg-teal-accent-400 hover:bg-deep-purple-accent-100 focus:shadow-outline focus:outline-none">
+                                Empecemos!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="bg-gray-900">
+            <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div class="grid row-gap-10 mb-8 lg:grid-cols-6">
+                    <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+                        <div>
+                            <p class="font-medium tracking-wide text-gray-300">Category</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">News</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">World</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Games</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">References</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-medium tracking-wide text-gray-300">Apples</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Web</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">eCommerce</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Business</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Entertainment</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Portfolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-medium tracking-wide text-gray-300">Cherry</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Media</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Brochure</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Nonprofit</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Educational</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Projects</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-medium tracking-wide text-gray-300">Business</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Infopreneur</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Personal</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Wiki</a>
+                                </li>
+                                <li>
+                                    <a href="/"
+                                        class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-200">Forum</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:max-w-md lg:col-span-2">
+                        <span class="text-base font-medium tracking-wide text-gray-300">Subscribe for updates</span>
+                        <form class="flex flex-col mt-4 md:flex-row">
+                            <input placeholder="Email" required="" type="text"
+                                class="flex-grow w-full h-12 px-4 mb-3 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none md:mr-2 md:mb-0 focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline" />
+                            <button type="submit"
+                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="mt-4 text-sm text-gray-500">
+                            Bacon ipsum dolor amet short ribs pig sausage prosciuto chicken spare ribs salami.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between pt-5 pb-10 border-t border-gray-800 sm:flex-row">
+                    <p class="text-sm text-gray-500">
+                        © Copyright 2020 Lorem Inc. All rights reserved.
+                    </p>
+                    <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path
+                                    d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+                                <circle cx="15" cy="15" r="4"></circle>
+                                <path
+                                    d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path
+                                    d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
